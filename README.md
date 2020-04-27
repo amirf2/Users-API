@@ -7,6 +7,9 @@
 ## Live Demo
 To see the server in action, go to [User API Server](https://users2.herokuapp.com/)
 
+## Implementation Details
+To implement this assignment i used Node.js for making the rest API, alongside MongoDB to store the database and bcryptjs to hash the user password.
+
 ## API
 
 ```
@@ -26,7 +29,7 @@ Create a new User
        * status
 ```
 
-## User Schema
+## User Schema Specification and Requirements
     nickname: non empty String, up to 11 characters
     username: non empty String, up to 50 characters
     password: non empty String, up to 200 characters
