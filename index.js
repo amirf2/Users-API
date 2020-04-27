@@ -2,10 +2,8 @@ const express         = require('express'),
       mongoose        = require('mongoose'),
       bcrypt          = require('bcryptjs'),
       bodyParser      = require('body-parser'),
-      User            = require("./models/user"),
+      User            = require('./models/user'),
       moment          = require('moment'),
-      PORT            = process.env.PORT || 8000,
-      SERVER_URL      = process.env.SERVER_URL || "http://localhost:8000",
       MongoDB_URL     = process.env.MONGODB_URL || "mongodb://localhost/User-API",
       MongoDB_OPTIONS = { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
 
@@ -13,12 +11,13 @@ const app = express();
 mongoose.connect(MongoDB_URL, MongoDB_OPTIONS);
 app.use(bodyParser.json());
 
-app.get('/', async (req, res, next) => {
+
+app.get('/', async (req, res) => {
     res.json("Please review https://github.com/amirf2/Users-API for documentation");
 });
 
 
-app.get('/api/admin/users', async (req, res, next) => {
+app.get('/api/admin/users', async (req, res) => {
     try{
         const allUsers = await User.find({ });
         res.json(allUsers);
@@ -27,7 +26,8 @@ app.get('/api/admin/users', async (req, res, next) => {
     }
 });
 
-app.post('/api/users', async (req, res, next) => {
+
+app.post('/api/users', async (req, res) => {
     console.log(moment().format());
     try{
         const salt = bcrypt.genSaltSync(10);
@@ -44,6 +44,7 @@ app.post('/api/users', async (req, res, next) => {
 app.use((req, res) => {
     res.status(404).json({ message: 'Path not found, only the following paths are supported: GET /api/admin/users, POST /api/users' });
   });
+
 
 app.listen(PORT, function () {
     console.log(`User API Server listening.. Access it using address: ${SERVER_URL}`);
