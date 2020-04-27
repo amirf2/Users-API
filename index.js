@@ -6,7 +6,7 @@ const express         = require('express'),
       moment          = require('moment-timezone'),
       PORT            = process.env.PORT || 8000,
       MongoDB_URL     = process.env.MONGODB_URL || "mongodb://localhost/User-API",
-      MongoDB_OPTIONS = { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex:true }
+      MongoDB_OPTIONS = { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex:true, autoIndex: true }
 
 const app = express();
 mongoose.connect(MongoDB_URL, MongoDB_OPTIONS);
