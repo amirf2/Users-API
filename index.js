@@ -29,7 +29,6 @@ app.get('/api/admin/users', async (req, res) => {
 
 
 app.post('/api/users', async (req, res) => {
-    console.log(moment().format());
     try{
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(req.body.password, salt);
