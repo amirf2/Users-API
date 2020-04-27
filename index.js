@@ -48,6 +48,6 @@ app.use((req, res) => {
 
 
 app.listen(PORT, function () {
-    console.log(`User API Server listening.. Access it using address: ${SERVER_URL}`);
+    console.log(`User API Server listening..`);
 });
 
