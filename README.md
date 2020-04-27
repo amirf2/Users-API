@@ -7,6 +7,9 @@
 ## Live Demo
 To see the server in action, go to [User API Server](https://users2.herokuapp.com/)
 
+## Implementation Details
+To implement this assignment i used Node.js for making the rest API, alongside MongoDB to store the database and bcryptjs to hash the user password.
+
 ## API
 
 ```
