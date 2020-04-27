@@ -4,6 +4,7 @@ const express         = require('express'),
       bodyParser      = require('body-parser'),
       User            = require('./models/user'),
       moment          = require('moment'),
+      PORT            = process.env.PORT || 8000,
       MongoDB_URL     = process.env.MONGODB_URL || "mongodb://localhost/User-API",
       MongoDB_OPTIONS = { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
 
