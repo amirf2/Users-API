@@ -29,7 +29,7 @@ Create a new User
        * status
 ```
 
-## User Schema
+## User Schema Specification and Requirements
     nickname: non empty String, up to 11 characters
     username: non empty String, up to 50 characters
     password: non empty String, up to 200 characters
