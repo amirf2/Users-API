@@ -3,7 +3,7 @@ const express         = require('express'),
       bcrypt          = require('bcryptjs'),
       bodyParser      = require('body-parser'),
       User            = require('./models/user'),
-      moment          = require('moment'),
+      moment          = require('moment-timezone')().tz('Asia/Jerusalem'),
       PORT            = process.env.PORT || 8000,
       MongoDB_URL     = process.env.MONGODB_URL || "mongodb://localhost/User-API",
       MongoDB_OPTIONS = { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
@@ -33,7 +33,7 @@ app.post('/api/users', async (req, res) => {
     try{
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(req.body.password, salt);
-        const user = {...req.body, password: hash, created_at: moment().format()}
+        const user = {...req.body, password: hash, created_at: moment.format()}
         const newUser = await User.create(user);
         return res.status(204).send();
     } catch (e){
